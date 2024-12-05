@@ -1,138 +1,118 @@
 /* Globalne style */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #1e3c72, #2a5298);
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #8b0000; /* Głęboka czerwień */
   color: #fff;
-  text-align: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-header {
-  padding: 20px;
-  margin-bottom: 30px;
+/* Nagłówek */
+.header {
+  text-align: center;
+  padding: 30px;
 }
 
 h1 {
   font-size: 3rem;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-  margin-bottom: 10px;
-  animation: glow-effect 2s infinite alternate;
+  color: #ffcc00; /* Złoty kolor */
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: #fff;
   margin-top: -10px;
-  color: #ffd700;
-}
-
-/* Efekt świetlny nagłówka */
-@keyframes glow-effect {
-  from {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-  }
-  to {
-    text-shadow: 0 0 30px rgba(255, 255, 255, 1);
-  }
 }
 
 /* List */
 .letter-container {
   margin: 20px auto;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   width: 90%;
   max-width: 600px;
+  animation: fadeInUp 2s ease-out;
 }
 
 .letter {
   font-size: 1.2rem;
   line-height: 1.8;
   text-align: left;
+  color: #ffcc00; /* Złoty kolor */
 }
 
-/* Serduszka */
-.hearts {
+/* Animacje światełek w tle */
+.lights {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  background: url('lights.png') repeat;
+  animation: blink 2s infinite;
   z-index: -1;
 }
 
-.heart {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
-  opacity: 0.8;
-  transform: rotate(45deg);
-  animation: float 5s infinite;
-  box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-}
-
-.heart:before,
-.heart:after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
-  border-radius: 50%;
-}
-
-.heart:before {
-  top: -10px;
-  left: 0;
-}
-
-.heart:after {
-  left: 10px;
-  top: 0;
-}
-
-@keyframes float {
-  0% {
-    transform: translateX(0) translateY(0) rotate(45deg);
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
   }
   50% {
-    transform: translateX(-50px) translateY(-50px) rotate(45deg);
-  }
-  100% {
-    transform: translateX(50px) translateY(100px) rotate(45deg);
+    opacity: 0.6;
   }
 }
 
-/* Efekt śniegu */
-.snowfall {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: url('snowflake.png');
-  animation: snow 10s linear infinite;
+/* Przycisk muzyki */
+.floating-elements {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
-@keyframes snow {
+#music-toggle {
+  background: #ffcc00;
+  color: #8b0000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Animowane serca */
+.floating-elements::after {
+  content: '❤️';
+  font-size: 2rem;
+  position: fixed;
+  bottom: 10%;
+  left: 10%;
+  animation: floatHeart 3s infinite;
+}
+
+@keyframes floatHeart {
   0% {
-    background-position: 0 0;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
   100% {
-    background-position: 0 100%;
+    transform: translateY(0);
   }
 }
 
 /* Stopka */
 footer {
-  margin-top: 20px;
-  padding: 10px;
-  font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  font-size: 1rem;
+  background: #660000; /* Ciemniejsza czerwień */
+  color: #ffcc00;
+  border-top: 2px solid #ffcc00;
 }
