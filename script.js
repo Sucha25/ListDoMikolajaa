@@ -1,14 +1,13 @@
-// Funkcja dodająca efekt animowanych serduszek
-document.addEventListener('DOMContentLoaded', () => {
-  const heartsContainer = document.querySelector('.hearts');
+// Efekt muzyki
+const musicToggle = document.getElementById('music-toggle');
+const music = document.getElementById('background-music');
 
-  // Tworzenie animowanych serduszek
-  for (let i = 0; i < 30; i++) {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.animationDelay = Math.random() * 5 + 's';
-    heart.style.animationDuration = 3 + Math.random() * 5 + 's';
-    heartsContainer.appendChild(heart);
+musicToggle.addEventListener('click', () => {
+  if (music.paused) {
+    music.play();
+    musicToggle.textContent = '🔇 Wyłącz muzykę';
+  } else {
+    music.pause();
+    musicToggle.textContent = '🔊 Włącz muzykę';
   }
 });
